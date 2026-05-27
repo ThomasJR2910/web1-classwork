@@ -1,10 +1,18 @@
 <script>
+    import Pokemon from "$lib/components/Pokemon.svelte";
     let { data } = $props();
-    console.log(data);
 </script>
 
-{#each data.pokemon.results as pokemon} 
-<div id={pokemon.name}>
-    <h2>{pokemon.name}</h2>
-</div>
-{/each}
+
+<section>
+    {#each data.pokemon.results as pokemon} 
+    <Pokemon url={pokemon.url} />
+    {/each}
+</section>
+
+<style>
+    section {
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+    }
+</style>
